@@ -2,10 +2,26 @@
 
 console.log("Problem is to sort an array");
 
-const numbers = [67, 23, 7, 90, 2, 7, -9];
-//this lines means it is a javascript function to sort an array
-const rslt = numbers.sort((a, b) => a - b);
+const SortNumber = (a, b) => {
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 0;
+  }
+};
 
-//and a,b means it is a arrow function which means in array there are no parameter a and and a-b means substract b from a from if negative
-// come before b and if positive come after b
-console.log(rslt);
+const numbers = [67, 23, 7, 90, 2, 7, -9];
+//alogrithim for sorting an array
+for (var i = 0; i < numbers.length; i++) {
+  for (var j = 0; j < numbers.length - 1; j++) {
+    if (SortNumber(numbers[j], numbers[j + 1]) === 1) {
+      const temp = numbers[j];
+      numbers[j] = numbers[j + 1];
+      numbers[j + 1] = temp;
+    }
+  }
+}
+
+console.log(numbers);
